@@ -1,4 +1,4 @@
-public class Number {
+
     public class Number {
         private double a;
         private double b;
@@ -19,4 +19,4 @@ public class Number {
             this.b = b;
         }
     }
-}
+
