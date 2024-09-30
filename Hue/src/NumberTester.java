@@ -24,5 +24,31 @@ public class NumberTester {
         this.palindromeTester = palindromeTester;
     }
 
-    
+
+    public void testFile() {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(fileName));
+            int lines = Integer.parseInt(reader.readLine());
+            for (int i = 0; i < lines; i++) {
+                String[] line = reader.readLine().split(" ");
+                int number = Integer.parseInt(line[1]);
+                switch (line[0]) {
+                    case "1":
+                        System.out.println(oddTester.testNumber(number) ? "ODD" : "EVEN");
+                        break;
+                    case "2":
+                        System.out.println(primeTester.testNumber(number) ? "PRIME" : "NO PRIME");
+                        break;
+                    case "3":
+                        System.out.println(palindromeTester.testNumber(number) ? "PALINDROME" : "NO PALINDROME");
+                        break;
+                    default:
+                        System.out.println("Invalid input");
+                        break;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
